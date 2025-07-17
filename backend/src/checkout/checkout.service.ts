@@ -1,6 +1,7 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { CheckoutDto } from './checkout.dto';
 import { v4 as uuidv4 } from 'uuid';
+import { checkoutFieldValidators } from './checkout.validator';
 
 export type CheckoutEntity = CheckoutDto & { id: string };
 
@@ -36,5 +37,9 @@ export class CheckoutService {
     if (index === -1) throw new NotFoundException('Checkout not found');
     const [removed] = this.checkouts.splice(index, 1);
     return removed;
+  }
+
+  validator() {
+    return checkoutFieldValidators;
   }
 }

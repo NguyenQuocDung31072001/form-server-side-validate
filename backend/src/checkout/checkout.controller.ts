@@ -21,6 +21,11 @@ export class CheckoutController {
     return schemas['CheckoutDto'];
   }
 
+  @Get('get-validators')
+  getCheckoutValidators() {
+    return this.checkoutService.validator();
+  }
+
   @Post()
   create(@Body() data: CheckoutDto) {
     return this.checkoutService.create(data);
