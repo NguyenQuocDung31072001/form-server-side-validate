@@ -9,10 +9,17 @@ import {
 } from '@nestjs/common';
 import { CheckoutService } from './checkout.service';
 import { CheckoutDto } from './checkout.dto';
+import { validationMetadatasToSchemas } from 'class-validator-jsonschema';
 
 @Controller('checkout')
 export class CheckoutController {
   constructor(private readonly checkoutService: CheckoutService) {}
+
+  @Get('schema')
+  getSchema() {
+    const schemas = validationMetadatasToSchemas();
+    return schemas['CheckoutDto'];
+  }
 
   @Post()
   create(@Body() data: CheckoutDto) {
