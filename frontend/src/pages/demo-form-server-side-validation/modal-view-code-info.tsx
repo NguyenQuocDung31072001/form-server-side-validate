@@ -23,11 +23,11 @@ export const ModalViewCodeInfo: React.FC<{
       </Button>
       <Modal
         centered
-        width={"90%"}
+        width={"100%"}
         open={isModalOpen}
         onCancel={() => setIsModalOpen(false)}
       >
-        <div className="max-h-[80vh] min-h-[300px] overflow-y-scroll">
+        <div className="h-[90vh] overflow-y-scroll">
           {tab === "realtime" && (
             <ViewRealtimeValidateServerSide />
           )}

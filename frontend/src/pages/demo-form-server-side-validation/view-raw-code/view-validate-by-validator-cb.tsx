@@ -2,13 +2,19 @@ import { Tabs } from "antd"
 import { CodeViewerContainer } from "../../../components/code-viewer-container"
 import validateFormByValidator from "../validate-form-by-validator.tsx?raw"
 import checkoutValidator from "../../../../../backend/src/checkout/checkout.validator.ts?raw"
-
+import checkoutDto from "../../../../../backend/src/checkout/checkout.dto.ts?raw"
 export const ViewValidateByValidatorCb = () => {
   return (
     <Tabs
       title="Validate by Validator"
       key="validate-by-validator-cb"
     >
+      <Tabs.TabPane tab="DTO" key="dto">
+        <CodeViewerContainer
+          code={checkoutDto}
+          language="typescript"
+        />
+      </Tabs.TabPane>
       <Tabs.TabPane tab="Backend" key="backend">
         <Tabs>
           <Tabs.TabPane
