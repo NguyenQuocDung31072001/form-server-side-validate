@@ -59,8 +59,7 @@ export const JsonSchemaValidation = () => {
   if (!schema) return <p>Loading...</p>
 
   return (
-    <div>
-      <h2>Json Schema Validation</h2>
+    <div className="max-h-[600px] min-h-[300px] overflow-y-scroll">
       <Form
         schema={schema}
         formData={formData}

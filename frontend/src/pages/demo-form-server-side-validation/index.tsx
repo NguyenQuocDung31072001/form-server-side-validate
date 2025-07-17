@@ -2,6 +2,7 @@ import React from "react"
 import { RealtimeValidateServerSide } from "./realtime-validate-server-side"
 import { Tabs } from "antd"
 import { JsonSchemaValidation } from "./json-schema-validation"
+import { ValidateFormByValidator } from "./validate-form-by-validator"
 
 export const DemoFormServerSideValidation =
   () => {
@@ -10,6 +11,7 @@ export const DemoFormServerSideValidation =
     return (
       <div>
         <Tabs
+          destroyOnHidden
           activeKey={tab}
           onChange={(key) => setTab(key)}
         >
@@ -24,6 +26,12 @@ export const DemoFormServerSideValidation =
             key="json-schema"
           >
             <JsonSchemaValidation />
+          </Tabs.TabPane>
+          <Tabs.TabPane
+            tab="Validate Form By Validator"
+            key="validate-form-by-validator"
+          >
+            <ValidateFormByValidator />
           </Tabs.TabPane>
         </Tabs>
       </div>
