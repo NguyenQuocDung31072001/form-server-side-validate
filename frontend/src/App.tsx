@@ -1,6 +1,5 @@
 import { Refine } from "@refinedev/core"
 import { RefineKbarProvider } from "@refinedev/kbar"
-import { notificationProvider } from "@refinedev/antd"
 import {
   BrowserRouter,
   Outlet,
@@ -16,6 +15,7 @@ import { CheckoutShow } from "./pages/checkout/CheckoutShow"
 
 import dataProvider from "@refinedev/simple-rest"
 import axios from "axios"
+import { DemoFormServerSideValidation } from "./pages/demo-form-server-side-validation"
 
 const httpClient = axios.create()
 
@@ -29,9 +29,6 @@ function App() {
               "http://localhost:3000",
               httpClient,
             )}
-            notificationProvider={
-              notificationProvider
-            }
             options={{
               syncWithLocation: true,
               warnWhenUnsavedChanges: true,
@@ -55,6 +52,12 @@ function App() {
                   </CustomLayout>
                 }
               >
+                <Route
+                  index
+                  element={
+                    <DemoFormServerSideValidation />
+                  }
+                />
                 <Route
                   path="/checkout"
                   element={<CheckoutList />}

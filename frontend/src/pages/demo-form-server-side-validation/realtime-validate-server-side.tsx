@@ -1,14 +1,8 @@
 import { useForm, Create } from "@refinedev/antd"
-import {
-  Form,
-  Input,
-  Select,
-  Checkbox,
-} from "antd"
 import type { Checkout } from "../../types/checkout"
 import { CoreFormComponent } from "../demo-form-server-side-validation/core-form-component"
 
-export const CheckoutCreate = () => {
+export const RealtimeValidateServerSide = () => {
   const { formProps, form } = useForm<Checkout>({
     resource: "checkout",
     action: "create",
@@ -28,6 +22,7 @@ export const CheckoutCreate = () => {
 
   return (
     <Create
+      title="Realtime Validate Server Side"
       saveButtonProps={{
         onClick: () => {
           form.submit()
